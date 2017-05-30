@@ -1,5 +1,7 @@
-import http from 'http'
+import express from 'express'
 import {createLogger, stdSerializers} from 'bunyan'
+import graphqlHTTP from 'express-graphql'
+import schema from '../graphql/goldberg/schema'
 
 const log = createLogger({
   name: 'Le Server',
@@ -10,12 +12,12 @@ const log = createLogger({
 
 const PORT = process.env.NODE_PORT || 3000
 
-const server = http.createServer((req, res) => {
-  res.end('Hello World')
-})
+const graphQLServer = express()
+
+graphQLServer.use('/', graphqlHTTP({ schema, graphiql: true }))
 
 export default cb => {
-  server.listen(PORT, () => {
+  graphQLServer.listen(PORT, () => {
     log.trace('It\'s alive!x!')
 
     if (cb) {

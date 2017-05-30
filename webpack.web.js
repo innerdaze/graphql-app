@@ -16,7 +16,8 @@ module.exports = {
   resolve: {
     alias: {
       css: path.resolve(__dirname, 'client', 'assets', 'css')
-    }
+    },
+    extensions: ['.js', '.jsx', '.scss', '.json', '.graphql']
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

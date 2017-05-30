@@ -6,7 +6,8 @@
     },
     "settings": {
         "ecmascript": 6,
-        "jsx": true
+        "jsx": true,
+        "import/extensions": [".js", ".jsx"]
     },
     "plugins": [
         "react"
@@ -15,7 +16,8 @@
         "strict": 0,
         "quotes": 0,
         "no-unused-vars": 0,
-        "camelcase": 0,
-        "no-underscore-dangle": 0
+        "camel-case": 0,
+        "no-underscore-dangle": 0,
+        "object-curly-spacing": "always"
     }
 }

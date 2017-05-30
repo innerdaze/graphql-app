@@ -6,7 +6,7 @@ module.exports = {
   entry: path.join(__dirname, 'client', 'index.jsx'),
   output: {
     filename: 'bundle.js',
-    path: path.join(__dirname, 'dist', 'cordova')
+    path: path.join(__dirname, 'dist', 'cordova'),
     publicPath: '/'
   },
   resolve: {

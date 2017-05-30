@@ -1,20 +1,20 @@
 import React from 'react'
-import {render} from 'react-dom'
-import {Provider} from 'react-redux'
-import {createStore} from 'redux'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import createStore from './store'
+import QueryContainer from './components/Query'
 
 if (module.hot) {
   module.hot.accept()
 }
 
-function startApp() {
-  let store = createStore(/* INSERT REFERENCE TO TOP-LEVEL REDUCER */)
-
+async function startApp() {
+  const store = await createStore()
   render(
     <Provider store={store}>
-      <Root/>
+      <QueryContainer/>
     </Provider>,
-    document.getElementById(/* INSERT ID OF ROOT ELEMENT IN INDEX.HTML (NOT BODY!) */)
+    document.getElementById('root')
   )
 }
 
