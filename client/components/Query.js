@@ -16,7 +16,9 @@ class Query extends Component {
   }
 
   handleGetGraphClick() {
-    this.state.queryText && this.props.dispatch(getGraph(this.state.queryText))
+    if (this.state.queryText) {
+      this.props.dispatch(getGraph(this.state.queryText))
+    }
   }
 
   handleSearchChange(e) {
@@ -26,12 +28,6 @@ class Query extends Component {
   }
 
   render() {
-    let queryText
-
-    const inputRef = node => {
-      this.queryText = node
-    }
-
     let data = this.props.store.get('data')
     let { character, actor, role, traits } = data && data.toObject()
 
@@ -48,11 +44,11 @@ class Query extends Component {
             <p>{ traits }</p>
           </div>
         }
-        <textarea value={this.state.value} onChange={this.handleSearchChange}></textarea>
+        <textarea value={this.state.value} onChange={this.handleSearchChange}/>
         <button onClick={this.handleGetGraphClick}>
           query
         </button>
-        </div>
+      </div>
     )
   }
 }

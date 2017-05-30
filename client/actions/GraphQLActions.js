@@ -24,7 +24,7 @@ export function getGraph(payload) {
       },
       body: payload
     })
-    .then((response) => response.json().then(result => result))
+    .then(response => response.json().then(result => result))
     .then(response => dispatch(finishedRequest(response)))
   }
 }
